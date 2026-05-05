@@ -33,9 +33,10 @@ La aplicación busca optimizar los procesos administrativos, reducir errores en 
 
     Su objetivo es dividir el trabajo en pequeñas etapas llamadas Sprints, permitiendo avanzar poco a poco y realizar mejoras cosnntantes
 
- <P align="center">
-    <img src="../img/c6eb52d6-ee56-475e-b2f8-b60478206abb (2).png" width="300"/>
- <P>
+
+ <p align="center">
+    <img src="./img/c6eb52d6-ee56-475e-b2f8-b60478206abb (2).png" width="300"/>
+</p>
 
  <br>
 
