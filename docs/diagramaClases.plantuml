@@ -1,0 +1,110 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+class Usuario {
+  - idUsuario : int
+  - nombre : string
+  - documento : string
+  - correo : string
+  - telefono : string
+  - contraseña : string
+  - fechaRegistro : Date
+  - estado : string
+
+  + iniciarSesion()
+  + cerrarSesion()
+  + actualizarPerfil()
+  + cambiarContraseña()
+}
+
+class Beneficiario {
+  - idBeneficiario : int
+  - modalidad : string
+  - edad : string
+  - fechaIngreso : Date
+  - estado : string
+
+  + RegistrarDotacion()
+  + consultarDotaciones()
+  + registrarEntradaDotacion()
+  + confirmarRecepcion()
+}
+
+class Administrador {
+  - idAdministrador : int
+  - cargo : string
+  - nivelAcceso : string
+  - permisos : string
+
+  + crearUsuario()
+  + editarUsuario()
+  + desactivarUsuario()
+  + gestionarDotaciones()
+  + generarReporte()
+}
+
+class Dotacion {
+  - idDotacion : int
+  - nombre : string
+  - descripcion : string
+  - fechaEntrega : Date
+  - cantidad : int
+  - estado : string
+  - valor : int
+
+  + registrarDotacion()
+  + actualizarDotacion()
+  + eliminarDotacion()
+}
+
+class Aseo {
+  - idAseo : string
+  - cc : string
+  - registroFotografico : jpg
+  - firma : string
+
+  + registrarRecepcion()
+}
+
+class Transporte {
+  - idTrasporte : int
+  - firma : varchar
+
+  + registrarTransporte()
+}
+
+class DotacionRopa {
+  - tipoRopa : string
+  - description : varchar
+  - genero : string
+  - registroFotografico : jpg
+
+  + registrarDotacionRopa()
+}
+
+class Reporte {
+  - idReporte : int
+  - tipo : string
+  - fechaGeneracion : Date
+  - descripcion : string
+
+  + generar()
+  + exportarPDF()
+  + exportarExcel()
+}
+
+' HERENCIA
+Usuario <|-- Beneficiario
+Usuario <|-- Administrador
+
+Dotacion <|-- Aseo
+Dotacion <|-- Transporte
+Dotacion <|-- DotacionRopa
+
+' RELACIONES
+Administrador "1" -- "0..*" Reporte : genera
+Administrador "1" -- "1..*" Dotacion : gestiona
+Beneficiario "1" -- "0..*" Dotacion : recibe
+
+@enduml
