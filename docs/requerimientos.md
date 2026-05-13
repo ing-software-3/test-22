@@ -18,7 +18,7 @@ RF07 ADMIN EL ADMINISTRADOR PODRA LISTAR, CONSULTAR Y ELIMINAR LA INFORMACION DE
 
 
 ## SITEMA NO FUNCIONAL
-# RNF
+# NRF
 ### RNF01. Seguridad
 El sistema deberá garantizar la protección de la información mediante autenticación de usuarios y contraseñas seguras con caracteres especiales.
 
