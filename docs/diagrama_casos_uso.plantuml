@@ -1,0 +1,76 @@
+@startuml
+left to right direction
+
+actor "Administrador" as Admin
+actor "Beneficiario" as Benef
+
+rectangle "Sistema de Gestión de Dotaciones" {
+
+    usecase "Iniciar Sesión" as UC1
+    usecase "Cerrar Sesión" as UC2
+    usecase "Actualizar Perfil" as UC3
+    usecase "Cambiar Contraseña" as UC4
+
+    usecase "Crear Usuario" as UC5
+    usecase "Editar Usuario" as UC6
+    usecase "Desactivar Usuario" as UC7
+
+    usecase "Gestionar Dotaciones" as UC8
+    usecase "Registrar Dotación" as UC9
+    usecase "Actualizar Dotación" as UC10
+    usecase "Eliminar Dotación" as UC11
+
+    usecase "Consultar Dotaciones" as UC12
+    usecase "Registrar Entrada Dotación" as UC13
+    usecase "Confirmar Recepción" as UC14
+
+    usecase "Generar Reporte" as UC15
+    usecase "Exportar PDF" as UC16
+    usecase "Exportar Excel" as UC17
+}
+
+'========================
+' RELACIONES ADMIN
+'========================
+
+Admin --> UC1
+Admin --> UC2
+Admin --> UC3
+Admin --> UC4
+
+Admin --> UC5
+Admin --> UC6
+Admin --> UC7
+
+Admin --> UC8
+Admin --> UC15
+
+Admin --> UC9
+Admin --> UC10
+Admin --> UC11
+
+Admin --> UC16
+Admin --> UC17
+
+'========================
+' RELACIONES BENEFICIARIO
+'========================
+
+Benef --> UC1
+Benef --> UC2
+Benef --> UC12
+Benef --> UC13
+Benef --> UC14
+
+'========================
+' INCLUDES
+'========================
+
+UC15 .> UC16 : <<include>>
+UC15 .> UC17 : <<include>>
+
+UC8 .> UC9 : <<include>>
+UC8 .> UC10 : <<include>>
+UC8 .> UC11 : <<include>>
+
+@enduml
